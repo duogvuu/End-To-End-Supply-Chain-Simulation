@@ -1,0 +1,3 @@
+wh_id,name,region,capacity_units,handling_cost_per_unit
+W1,NorthWarehouse,NT,2000,0.5
+W2,SouthWarehouse,WA,3000,0.4

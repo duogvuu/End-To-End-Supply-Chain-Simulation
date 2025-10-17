@@ -1,0 +1,6 @@
+lane_id,from_type,from_id,to_type,to_id,base_lead_days,transport_cost_per_unit
+L1,supplier,S1,factory,F1,10,1.2
+L2,factory,F1,warehouse,W1,3,0.6
+L3,factory,F1,warehouse,W2,5,0.7
+L4,warehouse,W1,retail,R1,2,0.3
+L5,warehouse,W2,retail,R2,3,0.4

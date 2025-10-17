@@ -1,0 +1,4 @@
+node_type,node_id,sku,on_hand
+warehouse,W1,SKU1,500
+warehouse,W2,SKU2,600
+retail,R1,SKU1,50

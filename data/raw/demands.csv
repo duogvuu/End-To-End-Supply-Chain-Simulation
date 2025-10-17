@@ -1,0 +1,5 @@
+week,retail_id,sku,demand_units
+1,R1,SKU1,120
+1,R2,SKU1,150
+2,R1,SKU2,110
+2,R2,SKU3,130

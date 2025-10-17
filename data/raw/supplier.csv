@@ -1,0 +1,3 @@
+supplier_id,name,country,base_lead_days,reliability_pct,unit_cost
+S1,AsiaSteel,China,10,0.95,5.8
+S2,GlobalWood,Malaysia,8,0.92,6.1
