@@ -1,0 +1,24 @@
+# 📦 End-to-End Supply Chain Simulation
+
+## 🧭 1. Project Overview
+This project simulates and analyses an end-to-end supply chain network from suppliers to retailers.  
+It models the flow of goods, costs, and demand across multiple nodes (suppliers → factory → warehouses → retailers), with the goal of building a realistic dataset that can be used for:
+- KPI and cost analysis  
+- Demand forecasting (Machine Learning)  
+- Inventory and logistics optimisation  
+- Interactive “what-if” simulation dashboard  
+
+---
+
+## ⚙️ 2. Environment Setup
+- **Python version:** 3.11.9  
+- **Conda environment:** `supplychain`
+
+> All commands should be run inside the project folder:  
+> `D:\Project\End-To-End Supply Chain Simulation`
+
+### Create environment
+```bash
+conda create -n supplychain python=3.11.9
+conda activate supplychain
+pip install -r requirements.txt
