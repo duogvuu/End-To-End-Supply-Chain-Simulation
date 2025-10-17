@@ -1,0 +1,8 @@
+node_type,node_id,region
+supplier,S1,China
+supplier,S2,Malaysia
+factory,F1,Vietnam
+warehouse,W1,NT
+warehouse,W2,WA
+retailer,R1,NT
+retailer,R2,WA
