@@ -1,0 +1,41 @@
+# =============================================
+#  End-to-End Supply Chain Simulation - Config
+# =============================================
+
+random_seed: 42
+
+time:
+  weeks: 52              # Number of simulated weeks (1 year)
+
+network:
+  suppliers: 2           # Number of suppliers
+  factories: 1           # Number of factories
+  warehouses: 2          # Number of warehouses
+  retailers: 6           # Number of retailers
+  skus: 3                # Number of product types (SKUs)
+
+demand:
+  base_range_per_sku: [80, 140]     # Base weekly demand per SKU
+  seasonality_amp_pct: 0.15         # Seasonality amplitude ±15%
+  trend_pct_per_year: 0.05          # Demand growth 5% per year
+  noise_sd_pct: 0.10                # Random Gaussian noise (10%)
+  promo:
+    weeks_per_store: 4              # Number of promotion weeks per retailer
+    uplift_pct: 0.35                # Demand increase during promotion weeks (+35%)
+
+lead_time:
+  lane_base_days:                   # Default base lead time by route type
+    factory_to_wh: 4
+    wh_to_retail: 2
+  reliability_to_jitter_map:        # Lower reliability = higher lead time fluctuation
+    "0.95": 0.10
+    "0.90": 0.20
+  min_days: 1
+
+cost:
+  transport_cost_per_unit_range: [0.3, 1.2]   # Transport cost per unit (min–max)
+  fuel_surcharge_pct: 0.0                     # Optional fuel surcharge for scenario testing
+
+capacity:
+  factory_per_week: 5000            # Weekly production capacity per factory
+  warehouse_units: [2000, 3000]     # Storage capacity per warehouse (min–max)
