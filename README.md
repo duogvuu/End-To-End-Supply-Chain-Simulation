@@ -1,130 +1,64 @@
-# 🏭 End-to-End Supply Chain Simulation
-
-## 1️⃣ Project Overview
-This project simulates and analyses an end-to-end supply chain network from suppliers to retailers.  
-It models the flow of goods, costs, and demand across multiple nodes (suppliers ➜ factories ➜ warehouses ➜ retailers),  
-with the goal of building a realistic dataset that can be used for:
-
-- Demand forecasting (Machine Learning)
-- Inventory and logistics optimisation
-- Cost-to-serve and risk scenario simulation
-- Interactive “what-if” analytics dashboard
-
----
-
-## 2️⃣ Environment Setup
-**Python version:** 3.11.9  
-**Conda environment:** `supplychain`
-
-All commands should be executed inside the project folder:  
-`D:\Project\End-To-End Supply Chain Simulation`
-
-### 🧩 Create environment
-```bash
-conda create -n supplychain python=3.11.9
-conda activate supplychain
-pip install -r requirements.txt
-📂 Folder Structure
-graphql
-Copy code
-End-To-End Supply Chain Simulation/
+## Folder Structure
+📦 End-To-End Supply Chain Simulation
 │
 ├── data/
-│   ├── raw/              # Base CSVs and manual inputs
-│   └── processed/        # Generated and cleaned datasets
+│   ├── raw/                # base datasets (suppliers, factories…)
+│   └── processed/          # simulated outputs
 │
-├── notebooks/            # Prototypes and analysis notebooks
-│   ├── 02_rule_prototype.ipynb
-│   └── 03_network_prototype.ipynb
+├── notebooks/              # Jupyter notebooks (EDA, simulation, what-if)
 │
-├── src/
-│   └── data/
-│       └── generate_synthetic.py   # Script to generate synthetic demand dataset
+├── src/                    # helper scripts (generation, model, utils)
 │
-├── reports/              # Outputs (figures, results, summaries)
+├── reports/
+│   ├── figures/            # exported plots, charts
+│   ├── results/            # final CSV / KPI reports
+│   └── SupplyChain_Report.pdf
 │
-├── config.yaml           # Central configuration file
-├── README.md
-├── .gitignore
-└── .pre-commit-config.yaml
-3️⃣ Current Progress
-✅ Step 1 – Project Initialization
-Created project skeleton under D:\Project\End-To-End Supply Chain Simulation
+├── dashboard/              # Streamlit app
+│   └── app.py
+│
+├── README.md               # full project documentation
+├── config.yaml             # parameter settings
+└── .gitignore
+## 📘 Executive Summary
 
-Set up folders (data/raw, src, etc.)
+This project simulates and analyses a complete end-to-end supply chain — 
+from **suppliers → factories → warehouses → retailers → customers** — 
+to understand how uncertainty in demand, cost, and reliability affects overall performance.
 
-Added .gitignore and README.md
+It integrates:
+- **Data generation (synthetic yet realistic)**
+- **Simulation-based modelling of lead times and transport delays**
+- **What-if scenario testing (e.g., reliability drop, fuel cost rise)**
+- **Interactive Streamlit dashboard for decision support**
 
-✅ Step 2 – Base Dataset Setup
-Created 7 base CSVs with headers:
+### 🔍 Business Context
+Supply chains are complex systems. Delays or cost fluctuations at any stage ripple downstream, 
+impacting delivery reliability and profitability.  
+This simulation quantifies those trade-offs, helping operations planners 
+balance between cost efficiency and service quality.
 
-suppliers.csv, factories.csv, warehouses.csv,
-retailers.csv, lanes.csv, demands.csv, inventory_init.csv
+### ⚙️ Technical Scope
+| Layer | Description | Tools |
+|-------|--------------|-------|
+| **Data Layer** | Structured relational schema for suppliers, factories, warehouses, retailers | `pandas`, `faker`, `yaml` |
+| **Simulation Layer** | Stochastic demand + delay modelling | `numpy`, `random`, custom Python functions |
+| **Analytics Layer** | KPI computation, cost-service trade-offs | `pandas`, `matplotlib` |
+| **Visualization Layer** | Interactive dashboard | `streamlit` |
+| **Scenario Engine** | Parameterized what-if testing | YAML configs |
 
-Each file includes small sample rows for structure testing.
+### 💡 Key Insights
+- A 10% drop in supplier reliability increases average lead time by **10.1%**  
+  and reduces on-time delivery by **~9.6%**.  
+- Increasing fuel surcharge by +15% drives **+15% total transport cost**.  
+- The combination of both causes a **compound effect** on OTD%, cost, and service level.
 
-✅ Step 3 – Synthetic Data Generation Script
-Developed a Python script (src/data/generate_synthetic.py) to automatically generate realistic demand data.
+## 📊 Dashboard Preview
 
-The script uses configuration parameters from config.yaml:
+![Dashboard Preview](reports/figures/dashboard_overview.png)
 
-Seasonal variation, yearly trend, promotion uplift, random noise, and base demand range.
+### KPI Section
+![KPI Cards](reports/figures/kpi_cards.png)
 
-Produces dataset:
-data/processed/demand_simulated.csv (~936 rows)
-
-Each record represents demand per week per retailer per SKU.
-
-Example columns:
-
-objectivec
-Copy code
-retailer_id, sku_id, week, demand_units
-RET_1, SKU_1, 1, 123.45
-RET_1, SKU_1, 2, 98.67
-...
-▶️ Run script
-
-bash
-Copy code
-python src/data/generate_synthetic.py
-Output:
-
-bash
-Copy code
-✅ Demand simulation dataset saved to data/processed/demand_simulated.csv
-✅ Step 4 – Supply Chain Network Generation
-Built the core network connecting all supply chain nodes:
-Suppliers → Factories → Warehouses → Retailers
-
-Implemented using 03_network_prototype.ipynb.
-
-Logic includes automatic lane creation with realistic parameters:
-
-base_lead_days from supplier/factory configuration
-
-Randomized transport_cost_per_unit based on cost range
-
-Region-based retailer mapping to primary warehouses
-
-Generated outputs:
-
-data/processed/nodes_master.csv
-
-data/processed/lanes_generated.csv
-
-Verified lane connectivity:
-
-yaml
-Copy code
-SF lanes: 2
-FW lanes: 2
-WR lanes: 2
-✅ Saved nodes_master.csv and lanes_generated.csv
-🔮 Next Step
-Step 5 – Logistics Simulation & What-If Scenarios
-Use the generated network and demand data to simulate product flows.
-
-Apply random reliability noise to compute realized lead times and on-time delivery %.
-
-Output shipment-level data for further KPI and forecasting analysis.
+### Weekly Trends
+![Trend Chart](reports/figures/weekly_trends.png)
