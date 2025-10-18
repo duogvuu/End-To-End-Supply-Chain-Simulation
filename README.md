@@ -1,25 +1,3 @@
-## Folder Structure
-📦 End-To-End Supply Chain Simulation
-│
-├── data/
-│   ├── raw/                # base datasets (suppliers, factories…)
-│   └── processed/          # simulated outputs
-│
-├── notebooks/              # Jupyter notebooks (EDA, simulation, what-if)
-│
-├── src/                    # helper scripts (generation, model, utils)
-│
-├── reports/
-│   ├── figures/            # exported plots, charts
-│   ├── results/            # final CSV / KPI reports
-│   └── SupplyChain_Report.pdf
-│
-├── dashboard/              # Streamlit app
-│   └── app.py
-│
-├── README.md               # full project documentation
-├── config.yaml             # parameter settings
-└── .gitignore
 ## 📘 Executive Summary
 
 This project simulates and analyses a complete end-to-end supply chain — 
