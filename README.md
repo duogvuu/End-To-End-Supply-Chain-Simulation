@@ -35,8 +35,8 @@ balance between cost efficiency and service quality.
 
 ![Dashboard Preview](reports/figures/dashboard_overview.png)
 
-### KPI Section
-![KPI Cards](reports/figures/kpi_cards.png)
+### Weekly Trend
+![Weekly Trend](reports/figures/weekly.png)
 
-### Weekly Trends
-![Trend Chart](reports/figures/weekly_trends.png)
+### Whatif Table
+![Whatif Table](reports/figures/whatif_table.png)
