@@ -27,7 +27,8 @@ st.caption("Built entirely in Python – powered by Streamlit, Pandas, and Matpl
 # ----------------------------
 # 1️⃣ Load Data
 # ----------------------------
-data_dir = Path("../data/processed")
+BASE_DIR = Path(__file__).resolve().parent.parent
+data_dir = BASE_DIR / "data" / "processed"
 
 @st.cache_data
 def load_data():
